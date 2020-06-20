@@ -49,6 +49,7 @@ fn main() {
 
 }
 
+/*Accessing values using reference is also called Borrowing*/
 fn reference(x: &mut i32){
     *x = *x + 1;
 }
