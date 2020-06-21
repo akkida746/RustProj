@@ -1,3 +1,4 @@
+mod errorhandling;
 mod coercion;
 mod bounds;
 mod lifetime;
@@ -10,6 +11,7 @@ use crate::deeply::nested::function as function;
 use crate::lifetime::lifetime::start as  lifetimeStart;
 use crate::bounds::bounds::startBounds as startBounds;
 use crate::coercion::coercion::coercion as startCoercion;
+use crate::errorhandling::errorHandling::errorHandling as startErrorHandling;
 
 fn main() {
     println!("Hello, world!");
@@ -55,6 +57,7 @@ fn main() {
     lifetimeStart();
     startBounds();
     startCoercion();
+    startErrorHandling();
 }
 
 /*Accessing values using reference is also called Borrowing*/
