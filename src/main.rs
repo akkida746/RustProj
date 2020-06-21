@@ -1,3 +1,4 @@
+mod collections;
 mod errorhandling;
 mod coercion;
 mod bounds;
@@ -12,6 +13,7 @@ use crate::lifetime::lifetime::start as  lifetimeStart;
 use crate::bounds::bounds::startBounds as startBounds;
 use crate::coercion::coercion::coercion as startCoercion;
 use crate::errorhandling::errorHandling::errorHandling as startErrorHandling;
+use crate::collections::collections::startCollections;
 
 fn main() {
     println!("Hello, world!");
@@ -58,6 +60,7 @@ fn main() {
     startBounds();
     startCoercion();
     startErrorHandling();
+    startCollections();
 }
 
 /*Accessing values using reference is also called Borrowing*/
