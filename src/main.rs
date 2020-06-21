@@ -1,3 +1,5 @@
+mod coercion;
+mod bounds;
 mod lifetime;
 mod borrowing;
 mod module;
@@ -6,6 +8,8 @@ use crate::module::module::printName;
 use crate::house::printHouse;
 use crate::deeply::nested::function as function;
 use crate::lifetime::lifetime::start as  lifetimeStart;
+use crate::bounds::bounds::startBounds as startBounds;
+use crate::coercion::coercion::coercion as startCoercion;
 
 fn main() {
     println!("Hello, world!");
@@ -48,8 +52,9 @@ fn main() {
     println!("Changing with reference");
     reference(&mut x);
     println!("x after reference {}", x);
-
     lifetimeStart();
+    startBounds();
+    startCoercion();
 }
 
 /*Accessing values using reference is also called Borrowing*/
