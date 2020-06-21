@@ -1,9 +1,11 @@
+mod lifetime;
 mod borrowing;
 mod module;
 
 use crate::module::module::printName;
 use crate::house::printHouse;
 use crate::deeply::nested::function as function;
+use crate::lifetime::lifetime::start as  lifetimeStart;
 
 fn main() {
     println!("Hello, world!");
@@ -47,6 +49,7 @@ fn main() {
     reference(&mut x);
     println!("x after reference {}", x);
 
+    lifetimeStart();
 }
 
 /*Accessing values using reference is also called Borrowing*/
