@@ -1,4 +1,3 @@
-
 #![feature(proc_macro_hygiene, decl_macro)]
 #[macro_use] extern crate rocket;
 
@@ -17,5 +16,6 @@ fn hello(name: String) -> String {
 
 fn main() {
     println!("Inside application");
+    // Add routes here
     rocket::ignite().mount("/", routes![index,hello]).launch();
 }
