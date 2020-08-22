@@ -3,6 +3,19 @@
 
 mod Types;
 use crate::Types::Types::User;
+use rocket_contrib::json::Json;
+use serde_json::Value;
+#[macro_use]
+extern crate serde_json;
+
+
+#[post("/create", format = "application/json", data = "<new_book>")]
+fn new(new_book: Json<User>) -> Json<Value> {
+    println!("Inside new method");
+    return Json(json!({
+        "status": "Akash",
+    }));
+}
 
 #[get("/")]
 fn index() -> &'static str{
@@ -15,8 +28,7 @@ fn hello(name: String) -> String {
     println!("Hello Akash");
 
     let mut user = User{
-        name: "Akash".parse().unwrap(),
-        age: 32,
+        name: "Akash".parse().unwrap()
     };
 
     let result = format!("Hello {}", user.name);
@@ -27,5 +39,5 @@ fn hello(name: String) -> String {
 fn main() {
     println!("Inside application");
     // Add routes here
-    rocket::ignite().mount("/", routes![index,hello]).launch();
+    rocket::ignite().mount("/", routes![index,hello,new]).launch();
 }
