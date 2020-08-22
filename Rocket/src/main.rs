@@ -1,6 +1,9 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 #[macro_use] extern crate rocket;
 
+mod Types;
+use crate::Types::Types::User;
+
 #[get("/")]
 fn index() -> &'static str{
     "Hello World!"
@@ -10,7 +13,14 @@ fn index() -> &'static str{
 fn hello(name: String) -> String {
     println!("{}",name);
     println!("Hello Akash");
-    let result = format!("Hello {}", name);
+
+    let mut user = User{
+        name: "Akash".parse().unwrap(),
+        age: 32,
+    };
+
+    let result = format!("Hello {}", user.name);
+
     return result;
 }
 
