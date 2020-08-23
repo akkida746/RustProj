@@ -8,7 +8,7 @@ use serde_json::Value;
 #[macro_use]
 extern crate serde_json;
 
-
+// Reading json from request body and sending json as response
 #[post("/create", format = "application/json", data = "<new_book>")]
 fn new(new_book: Json<User>) -> Json<Value> {
     println!("Inside new method");
